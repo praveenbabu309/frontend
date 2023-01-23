@@ -47,6 +47,8 @@
     margin-right: auto;
     border-spacing: 15px;
 }
+ .thead {background-color: #aad3c8;}
+ .tr{background-color: hsl(164, 35%, 92%);}
 .submit{
 
   margin-right: 10px;
@@ -67,13 +69,44 @@
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   border-radius: 8px;
 }
+
+.updatebutton{
+
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #06075d; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.deltebutton{
+
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: #c00c1e; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
 
 .footer{
   position: absolute;
@@ -86,7 +119,7 @@
 }
 .header {
   font-size: 250%;
-  background: #beb8a4;
+  background: #0b7b58;
   width: 100vw;
   display: flex;
   height: 100px;
