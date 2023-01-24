@@ -77,7 +77,7 @@ class CreateEmployee extends Component {
                 <h1>{this.getTitle()}</h1>
                  <div >
                     <h3>Employee ID</h3>
-                    <input type="text" placeholder="Id" name="id" value={this.state.id} onChange={this.onchange}></input>
+                    <input type="number" placeholder="Id" name="id" value={this.state.id} onChange={this.onchange}></input>
                     <h3>Employee Name</h3>
                     <input placeholder="Name" name="name" value={this.state.name} onChange={this.onchange}></input>
                     </div>
