@@ -32,10 +32,7 @@ edit=(id)=>{
 
 ok=(id)=>{
     fetch('http://localhost:8080/api/deleteemployee/'+id,{
-        method:'DELETE',
-        headers:{
-            'Content-Type':'application/json'
-        }})
+        method:'POST'})
     .then(res=>res.json())
     .then(res=>this.setState({employees : this.state.employees.filter(employee=>employee.id!==id)})).then(this.hideModal());
 }
