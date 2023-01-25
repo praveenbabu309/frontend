@@ -82,7 +82,7 @@ class CreateEmployee extends Component {
                     <input placeholder="Name" name="name" value={this.state.name} onChange={this.onchange}></input>
                     </div>
                     <br/>
-                 <button className='updatebutton' onClick={this.save}>Submit</button>
+                 <button className='updatebutton' onClick={this.save}>Save</button>
                  <button className='deltebutton' onClick={this.cancel}>Cancel</button>
                 </div>
             </div>
