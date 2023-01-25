@@ -1,6 +1,6 @@
 import '../App.css';
 
-const Modal = ({ handleClose, show, handleok }) => {
+const Modal = ({ handleClose, show, handleok,msg }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
@@ -8,7 +8,7 @@ const Modal = ({ handleClose, show, handleok }) => {
       <section className="modal-main">
         
         <div className='deletemsg'>
-          <h1>Do you want to delete?</h1>
+          <h1>Do you want to delete this Id  : {msg} ?</h1>
           </div>
         <button type="button" className='modelcancelbutton' onClick={handleClose}>
           Cancel
