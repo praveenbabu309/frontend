@@ -75,6 +75,15 @@
   display: inline-block;
   font-size: 16px;
   border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.search{
+  width: 305px;
+  height: 40px;
+  margin-left: 270px;
+  border-radius: 10px;
+  margin-bottom: 5px;
 }
 
 .updatebutton{
