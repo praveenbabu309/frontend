@@ -12,8 +12,6 @@ class ListEmployeeComponent extends Component {
       show: false,
       currentid: "",
       search: "",
-      no_data: false,
-      emp: [],
     };
   }
 
@@ -64,7 +62,6 @@ class ListEmployeeComponent extends Component {
   filterData() {
     return this.state.employees.filter((employee) => {
       if (this.state.search == "") {
-        this.setState({emp:employee})
         return employee;
       } else if (
         employee.id
@@ -73,9 +70,8 @@ class ListEmployeeComponent extends Component {
           .includes(this.state.search.toString().toLowerCase()) ||
         employee.name.toLowerCase().includes(this.state.search.toLowerCase())
       ) {
-        return employee
-      } else
-      return
+        return employee;
+      }
     });
   }
   render() {
@@ -108,7 +104,7 @@ class ListEmployeeComponent extends Component {
             </thead>
 
             <tbody className="tr">
-              {this.state.no_data == true ? (
+              {this.filterData().length == 0 ? (
                 <h1>No Result Found</h1>
               ) : (
                 this.filterData().map((employee) => (
