@@ -8,7 +8,8 @@ class CreateEmployee extends Component {
         this.state={
            id:this.props.match.params.id,
            name:'',
-           mode :''
+           mode :'',
+           disabled:false
         }
     }
     componentDidMount(){
@@ -17,7 +18,7 @@ class CreateEmployee extends Component {
             this.setState({mode : 'add',id:''}) 
         }
         else{
-            console.log('fdg');
+            this.setState({disabled:true});
             fetch('http://localhost:8080/api/employees/'+this.state.id)
             .then(res=>res.json())
             .then(res=>this.setState({id:res.id,name:res.name}));
@@ -77,7 +78,7 @@ class CreateEmployee extends Component {
                 <h1>{this.getTitle()}</h1>
                  <div >
                     <h3>Employee ID</h3>
-                    <input type="number" placeholder="Id" name="id" value={this.state.id} onChange={this.onchange}></input>
+                    <input type="number" placeholder="Id" name="id" value={this.state.id} onChange={this.onchange} disabled={this.state.disabled}></input>
                     <h3>Employee Name</h3>
                     <input placeholder="Name" name="name" value={this.state.name} onChange={this.onchange}></input>
                     </div>
