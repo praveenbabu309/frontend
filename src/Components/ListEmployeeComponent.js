@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import "../App.css";
 import Modal from "./Modal";
 import Search from "./Search";
+import add from "../add.png"
 
 class ListEmployeeComponent extends Component {
   constructor(props) {
@@ -80,9 +81,8 @@ class ListEmployeeComponent extends Component {
         <h2 className="textcenter"> Employee List</h2>
         <tr>
           <th>
-            <button className="addemplopyee" onClick={this.addEmployee}>
-              Add Employee
-            </button>
+            <img className="addemplopyee" src={add} onClick={this.addEmployee}>
+            </img>
           </th>
           <th>
             <div className="search">

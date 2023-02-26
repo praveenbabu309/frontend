@@ -47,8 +47,8 @@
     margin-right: auto;
     border-spacing: 15px;
 }
- .thead {background-color: #aad3c8;}
- .tr{background-color: hsl(164, 35%, 92%);}
+ .thead {background-color: #b4d99b;}
+ .tr{background-color: #e0e9dc;}
 .submit{
 
   margin-right: 10px;
@@ -66,24 +66,23 @@
 .addemplopyee{
 
   margin-left: 270px;
-  background-color: #1f7d45; /* Green */
+
   border: none;
   color: white;
-  padding: 15px 20px;
+  padding: 0px 7p;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   border-radius: 8px;
-  margin-bottom: 5px;
+  margin-bottom: -17px;
 }
 
 .search{
   width: 305px;
   height: 40px;
-  margin-left: 270px;
+  margin-left: 318px;
   border-radius: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 13px;
 }
 
 .updatebutton{
@@ -128,7 +127,7 @@
 }
 .header {
   font-size: 250%;
-  background: #0b7b58;
+  background: #619f58;
   width: 100vw;
   display: flex;
   height: 100px;
