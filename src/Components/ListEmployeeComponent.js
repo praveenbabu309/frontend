@@ -29,7 +29,7 @@ class ListEmployeeComponent extends Component {
       .then((res) => this.setState({ employees: res }));
   }
   edit = (id) => {
-    this.props.history.push(`/addemployee/${id}`);
+    this.props.history.push(`/updateemployee/${id}`);
     document.location.reload();
   };
 
@@ -48,7 +48,7 @@ class ListEmployeeComponent extends Component {
       .then(this.hideModal());
   };
   addEmployee = () => {
-    this.props.history.push("/addemployee/-1");
+    this.props.history.push("/addemployee/ ");
     document.location.reload();
   };
   getFilterValue = (e) => {
@@ -77,12 +77,18 @@ class ListEmployeeComponent extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="emp-content">
         <h2 className="textcenter"> Employee List</h2>
         <tr>
           <th>
-            <img className="addemplopyee" src={add} onClick={this.addEmployee}>
-            </img>
+            <span className="addemplopyee">
+            <button className="add-emp-icon-button" onClick={this.addEmployee}><input type="image"   src={add}/> Add</button>
+            </span>
+          </th>
+          <th>
+            <span>
+            <button className="bulk-action">Bulk actions <div className="triangle_down"/> </button>
+            </span>
           </th>
           <th>
             <div className="search">
@@ -124,19 +130,23 @@ class ListEmployeeComponent extends Component {
                       >
                         Update
                       </button>
+                    
                       <button
                         className="deltebutton"
                         onClick={() => this.showModal(employee.id)}
                       >
                         Delete
                       </button>
+                    
                     </td>
                   </tr>
                 ))
               )}
             </tbody>
           </table>
+          
         </div>
+        <br/>
       </div>
     );
   }

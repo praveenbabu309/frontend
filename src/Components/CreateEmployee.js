@@ -13,7 +13,7 @@ class CreateEmployee extends Component {
         }
     }
     componentDidMount(){
-        if(this.state.id==-1)
+        if(!this.state.id)
         {
             this.setState({mode : 'add',id:''}) 
         }
