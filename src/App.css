@@ -63,10 +63,27 @@
 {
   text-align: center;
 }
+.add-emp-icon-button{
+  background-color:#619f58;
+  color: #FFF;
+  border-color: #50b822;
+
+  background-position: 7px 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    height: 36px;
+    line-height: 36px;
+    margin-top: 1px;
+    padding-right: 10px;
+    text-indent: 5px;
+    
+
+}
 .addemplopyee{
-
   margin-left: 270px;
-
+ 
   border: none;
   color: white;
   padding: 0px 7p;
@@ -75,6 +92,7 @@
   display: inline-block;
   border-radius: 8px;
   margin-bottom: -17px;
+  
 }
 
 .search{
@@ -82,7 +100,7 @@
   height: 40px;
   margin-left: 318px;
   border-radius: 10px;
-  margin-bottom: 13px;
+  margin-bottom: 20px;
 }
 
 .updatebutton{
@@ -164,6 +182,11 @@
   display: none;
 }
 
+.emp-content{
+  overflow-y: scroll;
+    height: 80vh;
+}
+
 .modelcancelbutton1{
   margin-left: 330px;
     margin-top: 170px;
@@ -215,4 +238,38 @@
 }
 .deletemsg{
   margin-top: 50px;
+}
+
+.triangle_down {
+  position: relative;
+   top: 6px;
+   content: "";
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   border-right: 0.2em solid rgb(244, 240, 240);
+   border-top: 0.2em solid rgb(244, 240, 240);
+   transform: rotate(-45deg);
+   margin-right: 0em;
+   margin-left: 0.5em
+  
+}
+
+.bulk-action{
+  background-color:#619f58;
+  color: #FFF;
+  border-color: #50b822;
+
+  background-position: 7px 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    height: 36px;
+    line-height: 36px;
+    margin-top: 1px;
+    padding-right: 10px;
+    text-indent: 5px;
+    margin-left: 10px;
+    width: fit-content;
 }
