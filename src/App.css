@@ -32,58 +32,70 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 .table {
-    width: 1000px;
-    text-align: center;
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    border-spacing: 15px;
+  width: 1000px;
+  text-align: center;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 15px;
 }
- .thead {background-color: #b4d99b;}
- .tr{background-color: #e0e9dc;}
-.submit{
+
+.thead {
+  background-color: #b4d99b;
+}
+
+.tr {
+  background-color: #e0e9dc;
+}
+
+.submit {
 
   margin-right: 10px;
   margin-bottom: 10px;
-  }
-  .cancel{
+}
 
-    margin-left: 10px;
-    margin-bottom: 10px;
-  }
-.textcenter
-{
+.cancel {
+
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.textcenter {
   text-align: center;
 }
-.add-emp-icon-button{
-  background-color:#619f58;
+
+.add-emp-icon-button {
+  background-color: #619f58;
   color: #FFF;
   border-color: #50b822;
 
   background-position: 7px 7px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 18px;
-    height: 36px;
-    line-height: 36px;
-    margin-top: 1px;
-    padding-right: 10px;
-    text-indent: 5px;
-    
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  height: 36px;
+  line-height: 36px;
+  margin-top: 1px;
+  padding-right: 10px;
+  text-indent: 5px;
+
 
 }
-.addemplopyee{
+
+.addemplopyee {
   margin-left: 270px;
- 
+
   border: none;
   color: white;
   padding: 0px 7p;
@@ -92,10 +104,10 @@
   display: inline-block;
   border-radius: 8px;
   margin-bottom: -17px;
-  
+
 }
 
-.search{
+.search {
   width: 305px;
   height: 40px;
   margin-left: 318px;
@@ -103,11 +115,12 @@
   margin-bottom: 20px;
 }
 
-.updatebutton{
+.updatebutton {
 
   margin-right: 10px;
   margin-bottom: 10px;
-  background-color: #06075d; /* Green */
+  background-color: #06075d;
+  /* Green */
   border: none;
   color: white;
   padding: 8px 20px;
@@ -118,11 +131,12 @@
   border-radius: 8px;
 }
 
-.deltebutton{
+.deltebutton {
 
   margin-right: 10px;
   margin-bottom: 10px;
-  background-color: #c00c1e; /* Green */
+  background-color: #c00c1e;
+  /* Green */
   border: none;
   color: white;
   padding: 8px 20px;
@@ -134,15 +148,16 @@
 }
 
 
-.footer{
+.footer {
   position: absolute;
   bottom: 0;
-  width:100%;
+  width: 100%;
   height: 50px;
   background-color: black;
   text-align: center;
   color: white;
 }
+
 .header {
   font-size: 250%;
   background: #619f58;
@@ -158,19 +173,19 @@
   position: fixed;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   height: 100%;
-  background:none;
+  background: none;
 }
 
 .modal-main {
-  position:fixed;
+  position: fixed;
   background: whitesmoke;
   width: 30%;
   height: 30%;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 8px;
 }
 
@@ -182,35 +197,37 @@
   display: none;
 }
 
-.emp-content{
+.emp-content {
   overflow-y: scroll;
-    height: 80vh;
+  height: 80vh;
 }
 
-.modelcancelbutton1{
+.modelcancelbutton1 {
   margin-left: 330px;
-    margin-top: 170px;
-    background-color: #f32233; /* Green */
-    border: none;
-    color: white;
-    padding: 8px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 8px;
+  margin-top: 170px;
+  background-color: #f32233;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
 }
-.modelcancelbutton{
+
+.modelcancelbutton {
   margin-left: 170px;
   border: none;
-    margin-top: 75px;
-  position:fixed;
+  margin-top: 75px;
+  position: fixed;
   background-color: #f33e22;
   width: 18%;
   height: auto;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 8px;
   font-size: 16px;
   display: inline-block;
@@ -218,17 +235,18 @@
   padding: 8px 20px;
   color: white;
 }
-.modelokbutton{
+
+.modelokbutton {
   margin-left: 50px;
   border: none;
-    margin-top: 75px;
-  position:fixed;
+  margin-top: 75px;
+  position: fixed;
   background-color: #91f322;
   width: 18%;
   height: auto;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 8px;
   font-size: 16px;
   display: inline-block;
@@ -236,40 +254,134 @@
   padding: 8px 20px;
   color: white;
 }
-.deletemsg{
+
+.deletemsg {
   margin-top: 50px;
 }
 
 .triangle_down {
   position: relative;
-   top: 6px;
-   content: "";
-   display: inline-block;
-   width: 10px;
-   height: 10px;
-   border-right: 0.2em solid rgb(244, 240, 240);
-   border-top: 0.2em solid rgb(244, 240, 240);
-   transform: rotate(-45deg);
-   margin-right: 0em;
-   margin-left: 0.5em
-  
+  top: 6px;
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 0.2em solid rgb(244, 240, 240);
+  border-top: 0.2em solid rgb(244, 240, 240);
+  transform: rotate(-45deg);
+  margin-right: 0em;
+  margin-left: 0.5em
 }
 
-.bulk-action{
-  background-color:#619f58;
+.bulk-action {
+  background-color: #619f58;
   color: #FFF;
   border-color: #50b822;
-
   background-position: 7px 7px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 18px;
-    height: 36px;
-    line-height: 36px;
-    margin-top: 1px;
-    padding-right: 10px;
-    text-indent: 5px;
-    margin-left: 10px;
-    width: fit-content;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  height: 36px;
+  line-height: 36px;
+  margin-top: 1px;
+  padding-right: 10px;
+  text-indent: 5px;
+  margin-left: 10px;
+  width: fit-content;
+}
+
+.dropdown-menu {
+  position: fixed;
+  margin-left: 12px;
+  width: 144px;
+  border-radius: 0 0 5px 5px;
+  border: 2px solid #ccc;
+  
+}
+.dropdown-list {
+  
+  
+  background-color: white;
+  transform: translateY(-2px);
+  font-size: 16px;
+  font-weight: 100;
+  cursor: pointer;
+
+}
+.dropdown-list:hover{
+  background-color: #619f58;
+}
+
+.main {
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Hide the default checkbox */
+input[type=checkbox] {
+  visibility: hidden;
+}
+
+/* Creating a custom checkbox
+based on demand */
+.geekmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(251, 251, 251);
+  border: 2px solid #bcbcbc;
+  border-radius: 2px;
+  margin-left: 95px;
+    margin-top: 7px;
+
+}
+
+/* Specify the background color to be
+shown when hovering over checkbox */
+.main:hover input ~ .geekmark {
+  background-color: rgb(134, 138, 131);
+}
+
+
+
+/* Specify the background color to be
+shown when checkbox is checked */
+.main input:checked ~ .geekmark {
+  background-color: green;
+}
+
+/* Checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.geekmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Display checkmark when checked */
+.main input:checked ~ .geekmark:after {
+  display: block;
+}
+
+/* Styling the checkmark using webkit */
+/* Rotated the rectangle by 45 degree and 
+showing only two border to make it look
+like a tickmark */
+.main .geekmark:after {
+  left: 8px;
+  bottom: 5px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
