@@ -3,7 +3,9 @@ import { withRouter } from "react-router-dom";
 import "../App.css";
 import Modal from "./Modal";
 import Search from "./Search";
-import add from "../add.png"
+import add from "../add.png";
+import Bulkactionmenu from "./bulkactionmenu.js";
+import Checkbox from "./Checkbox";
 
 class ListEmployeeComponent extends Component {
   constructor(props) {
@@ -13,6 +15,9 @@ class ListEmployeeComponent extends Component {
       show: false,
       currentid: "",
       search: "",
+      bulk_drop_down_open: false,
+      bulkaction: "",
+      bulk_delete_array:[]
     };
   }
 
@@ -75,21 +80,73 @@ class ListEmployeeComponent extends Component {
       }
     });
   }
+  onhandleEdit = () => {
+    this.setState({ bulkaction: "edit" });
+  };
+  onhandleAdd = () => {
+    this.setState({ bulkaction: "add" });
+  };
+  onhandleDelete = () => {
+    this.setState({ bulkaction: "delete" });
+  };
+  checkboxclick=(e)=>{
+    //const array=[];
+    
+    if(e.target.checked==true)
+this.setState({bulk_delete_array:[...this.state.bulk_delete_array,{id:e.target.value}]})
+
+  };
+
+  onCancelClick=(e)=>{
+    this.setState({bulkaction:""})
+    console.log("cancel clicked");
+  }
+
   render() {
     return (
       <div className="emp-content">
         <h2 className="textcenter"> Employee List</h2>
         <tr>
+          {this.state.bulkaction!="delete"?
+          (
+            <>
           <th>
             <span className="addemplopyee">
-            <button className="add-emp-icon-button" onClick={this.addEmployee}><input type="image"   src={add}/> Add</button>
+              <button
+                className="add-emp-icon-button"
+                onClick={this.addEmployee}
+              >
+                <input type="image" src={add} /> Add
+              </button>
             </span>
           </th>
           <th>
             <span>
-            <button className="bulk-action">Bulk actions <div className="triangle_down"/> </button>
+              <button
+                className="bulk-action"
+                onClick={(e) =>
+                  this.setState({
+                    bulk_drop_down_open: !this.state.bulk_drop_down_open,
+                  })
+                }
+              >
+                Bulk actions <div className="triangle_down" />{" "}
+              </button>
             </span>
-          </th>
+            {this.state.bulk_drop_down_open && (
+              <Bulkactionmenu
+                onhandleEdit={this.onhandleEdit}
+                onhandleAdd={this.onhandleAdd}
+                onhandleDelete={this.onhandleDelete}
+              />
+            )}
+          </th></>):
+           (<><th>
+            <button className="add-emp-icon-button">Delete</button>
+           </th>
+           <th>
+            <button className="bulk-action" onClick={(e)=>this.onCancelClick(e)}>Cancel</button>
+           </th></>)}
           <th>
             <div className="search">
               <Search
@@ -117,36 +174,33 @@ class ListEmployeeComponent extends Component {
                   <tr key={employee.id}>
                     <td>{employee.id}</td>
                     <td>{employee.name}</td>
-                    <td>
-                      <Modal
-                        show={this.state.show}
-                        handleClose={this.hideModal}
-                        handleok={() => this.ok(this.state.currentid)}
-                        msg={this.state.currentid}
-                      ></Modal>
+                    {this.state.bulkaction=="delete"?(<td><Checkbox id ={employee.id} checkboxclick={(e)=>this.checkboxclick(e)}/></td>):(<td>
                       <button
                         className="updatebutton"
                         onClick={() => this.edit(employee.id)}
                       >
                         Update
                       </button>
-                    
                       <button
                         className="deltebutton"
                         onClick={() => this.showModal(employee.id)}
                       >
                         Delete
                       </button>
-                    
-                    </td>
+                    </td>) }
                   </tr>
                 ))
               )}
             </tbody>
           </table>
-          
+          <Modal
+            show={this.state.show}
+            handleClose={this.hideModal}
+            handleok={() => this.ok(this.state.currentid)}
+            msg={this.state.currentid}
+          />
         </div>
-        <br/>
+        <br />
       </div>
     );
   }
