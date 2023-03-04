@@ -5,16 +5,20 @@ class Bulkactionmenu extends Component {
     super(props);
   }
   render() {
-    const { onhandleEdit ,onhandleAdd,onhandleDelete} = this.props;
+    const {value,onbulkActionMenuClick} = this.props;
     return (
-      <div className="dropdown-menu">
-        <div  className="dropdown-list" onClick={onhandleEdit}>
-          Bulk Edit
-        </div>
-        <div className="dropdown-list"onClick={onhandleAdd}>Bulk Add</div>
-
-        <div className="dropdown-list"onClick={onhandleDelete}>Bulk Delete</div>
-      </div>
+      
+      <select 
+      className="bulk-action"
+      value={value} 
+      onChange={onbulkActionMenuClick
+      } 
+    >
+      <option  className="dropdown-menu">Bulk Action'</option>
+     <option  className="dropdown-menu" value="add">Orange</option>
+      <option   className="dropdown-menu" value="edit">Radish</option>
+      <option  className="dropdown-menu" value="delete">Cherry</option>
+    </select>
     );
   }
 }
