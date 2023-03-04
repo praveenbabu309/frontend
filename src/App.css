@@ -73,12 +73,9 @@
 .textcenter {
   text-align: center;
 }
-
-.add-emp-icon-button {
-  background-color: #619f58;
+.bulkdelete{  background-color: #c00c1e;
   color: #FFF;
-  border-color: #50b822;
-
+  border-color: #c00c1e;
   background-position: 7px 7px;
   border-radius: 8px;
   cursor: pointer;
@@ -89,8 +86,27 @@
   margin-top: 1px;
   padding-right: 10px;
   text-indent: 5px;
-
-
+  margin-left: 270px;
+}
+.add-emp-icon-button {
+  background-color: #619f58;
+  color: #FFF;
+  border-color: #50b822;
+  background-position: 7px 7px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  height: 36px;
+  line-height: 36px;
+  margin-top: 1px;
+  padding-right: 10px;
+  text-indent: 5px;
+}
+.bulkdelete:disabled {
+  background-color: #c00c1e;
+  color: hwb(0 93% 4% / 0.59);
+  border-color: #c00c1e;
 }
 
 .addemplopyee {
@@ -110,7 +126,15 @@
 .search {
   width: 305px;
   height: 40px;
-  margin-left: 318px;
+  margin-left: 252px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.search-bulk {
+  width: 305px;
+  height: 40px;
+  margin-left: 222px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -270,7 +294,20 @@
   border-top: 0.2em solid rgb(244, 240, 240);
   transform: rotate(-45deg);
   margin-right: 0em;
-  margin-left: 0.5em
+   margin-left: 0.5em
+}
+.triangle_up {
+  position: relative;
+  top: -3px;
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 0.2em solid rgb(244, 240, 240);;
+  border-top: 0.2em solid rgb(244, 240, 240);;
+  transform:  rotate(135deg);
+  margin-right: 0em;
+  margin-left: 0.5em;
 }
 
 .bulk-action {
@@ -290,26 +327,43 @@
   margin-left: 10px;
   width: fit-content;
 }
+.bulkdeleteCancel{
+  background-color: #619f58;
+  color: #FFF;
+  border-color: #50b822;
+  background-position: 7px 7px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  height: 36px;
+  line-height: 36px;
+  margin-top: 1px;
+  padding-right: 10px;
+  text-indent: 5px;
+  margin-left: 10px;
+  width: fit-content;
+}
 
 .dropdown-menu {
-  position: fixed;
-  margin-left: 12px;
-  width: 144px;
-  border-radius: 0 0 5px 5px;
-  border: 2px solid #ccc;
-  
-}
-.dropdown-list {
-  
-  
   background-color: white;
   transform: translateY(-2px);
   font-size: 16px;
   font-weight: 100;
   cursor: pointer;
+  color:black;
+  
+}
+.dropdown-list {  
+  
+  background-color: white;
+  /* transform: translateY(-2px); */
+  font-size: 16px;
+  font-weight: 100;
+  cursor: pointer;
 
 }
-.dropdown-list:hover{
+.dropdown-menu:hover{
   background-color: #619f58;
 }
 

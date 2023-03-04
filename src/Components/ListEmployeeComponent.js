@@ -17,7 +17,9 @@ class ListEmployeeComponent extends Component {
       search: "",
       bulk_drop_down_open: false,
       bulkaction: "",
-      bulk_delete_array:[]
+      bulk_delete_array: [],
+      isdiable: true,
+     dropDownArrow:"triangle_up"
     };
   }
 
@@ -80,75 +82,103 @@ class ListEmployeeComponent extends Component {
       }
     });
   }
-  onhandleEdit = () => {
-    this.setState({ bulkaction: "edit" });
+ 
+ 
+  onbulkActionMenuClick = (e) => {
+    this.setState({ bulkaction: e.target.value });
   };
-  onhandleAdd = () => {
-    this.setState({ bulkaction: "add" });
-  };
-  onhandleDelete = () => {
-    this.setState({ bulkaction: "delete" });
-  };
-  checkboxclick=(e)=>{
+  checkboxclick = (e) => {
     //const array=[];
-    
-    if(e.target.checked==true)
-this.setState({bulk_delete_array:[...this.state.bulk_delete_array,{id:e.target.value}]})
-
+    this.setState({ isdiable: false });
+    if (e.target.checked == true) {
+      this.setState({
+        bulk_delete_array: [
+          ...this.state.bulk_delete_array,
+          parseInt(e.target.value),
+        ],
+        isdiable: false,
+      });
+    } else {
+      let selectedId = [...this.state.bulk_delete_array];
+      selectedId = selectedId.filter((item) => item != e.target.value);
+      this.setState({ bulk_delete_array: [...selectedId] });
+      {
+        selectedId.length > 0
+          ? this.setState({ isdiable: false })
+          : this.setState({ isdiable: true });
+      }
+    }
   };
 
-  onCancelClick=(e)=>{
-    this.setState({bulkaction:""})
+  onCancelClick = (e) => {
+    this.setState({ bulkaction: "", isdiable: true });
+
     console.log("cancel clicked");
-  }
+  };
+
+  onbulkDeleteClick = (e) => {
+    console.log(JSON.stringify(this.state.bulk_delete_array));
+    fetch("http://localhost:8080/api/deletemultipleemployee", {
+      method: "POST",
+
+      body: JSON.stringify(this.state.bulk_delete_array),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      document.location.reload();
+    });
+  };
 
   render() {
+    let dropDownArrow=this.state.bulk_drop_down_open==true? "triangle_up":"triangle_down"
     return (
       <div className="emp-content">
         <h2 className="textcenter"> Employee List</h2>
         <tr>
-          {this.state.bulkaction!="delete"?
-          (
+          {this.state.bulkaction != "delete" ? (
             <>
-          <th>
-            <span className="addemplopyee">
-              <button
-                className="add-emp-icon-button"
-                onClick={this.addEmployee}
-              >
-                <input type="image" src={add} /> Add
-              </button>
-            </span>
-          </th>
-          <th>
-            <span>
-              <button
-                className="bulk-action"
-                onClick={(e) =>
-                  this.setState({
-                    bulk_drop_down_open: !this.state.bulk_drop_down_open,
-                  })
-                }
-              >
-                Bulk actions <div className="triangle_down" />{" "}
-              </button>
-            </span>
-            {this.state.bulk_drop_down_open && (
+              <th>
+                <span className="addemplopyee">
+                  <button
+                    className="add-emp-icon-button"
+                    onClick={this.addEmployee}
+                  >
+                    <input type="image" src={add} /> 
+                    Add
+                  </button>
+                </span>
+              </th>
+              <th>
               <Bulkactionmenu
-                onhandleEdit={this.onhandleEdit}
-                onhandleAdd={this.onhandleAdd}
-                onhandleDelete={this.onhandleDelete}
-              />
-            )}
-          </th></>):
-           (<><th>
-            <button className="add-emp-icon-button">Delete</button>
-           </th>
-           <th>
-            <button className="bulk-action" onClick={(e)=>this.onCancelClick(e)}>Cancel</button>
-           </th></>)}
+                    onbulkActionMenuClick={this.onbulkActionMenuClick}
+                    value={this.state.bulkaction}
+                  />
+              </th>
+            </>
+          ) : (
+            <>
+              <th>
+                <button
+                  className="bulkdelete"
+                  onClick={(e) => this.onbulkDeleteClick(e)}
+                  disabled={this.state.isdiable}
+                >
+                  Delete
+                </button>
+              </th>
+              <th>
+                <button
+                  className="bulkdeleteCancel"
+                  onClick={(e) => this.onCancelClick(e)}
+                >
+                  Cancel
+                </button>
+              </th>
+            </>
+          )}
           <th>
-            <div className="search">
+            <div className={this.state.bulkaction =="delete"? "search-bulk":"search"}>
               <Search
                 search={this.state.search}
                 getFilterValue={this.getFilterValue}
@@ -174,20 +204,29 @@ this.setState({bulk_delete_array:[...this.state.bulk_delete_array,{id:e.target.v
                   <tr key={employee.id}>
                     <td>{employee.id}</td>
                     <td>{employee.name}</td>
-                    {this.state.bulkaction=="delete"?(<td><Checkbox id ={employee.id} checkboxclick={(e)=>this.checkboxclick(e)}/></td>):(<td>
-                      <button
-                        className="updatebutton"
-                        onClick={() => this.edit(employee.id)}
-                      >
-                        Update
-                      </button>
-                      <button
-                        className="deltebutton"
-                        onClick={() => this.showModal(employee.id)}
-                      >
-                        Delete
-                      </button>
-                    </td>) }
+                    {this.state.bulkaction == "delete" ? (
+                      <td>
+                        <Checkbox
+                          id={employee.id}
+                          checkboxclick={(e) => this.checkboxclick(e)}
+                        />
+                      </td>
+                    ) : (
+                      <td>
+                        <button
+                          className="updatebutton"
+                          onClick={() => this.edit(employee.id)}
+                        >
+                          Update
+                        </button>
+                        <button
+                          className="deltebutton"
+                          onClick={() => this.showModal(employee.id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    )}
                   </tr>
                 ))
               )}
