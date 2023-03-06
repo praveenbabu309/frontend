@@ -73,9 +73,9 @@
 .textcenter {
   text-align: center;
 }
-.bulkdelete{  background-color: #c00c1e;
+.bulkdelete{  background-color:#619f58;
   color: #FFF;
-  border-color: #c00c1e;
+  border-color: #619f58;
   background-position: 7px 7px;
   border-radius: 8px;
   cursor: pointer;
@@ -104,9 +104,9 @@
   text-indent: 5px;
 }
 .bulkdelete:disabled {
-  background-color: #c00c1e;
+  background-color: #619f58;
   color: hwb(0 93% 4% / 0.59);
-  border-color: #c00c1e;
+  border-color: #619f58;
 }
 
 .addemplopyee {
@@ -126,7 +126,7 @@
 .search {
   width: 305px;
   height: 40px;
-  margin-left: 252px;
+  margin-left: 231px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -134,7 +134,7 @@
 .search-bulk {
   width: 305px;
   height: 40px;
-  margin-left: 222px;
+  margin-left: 272px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -328,9 +328,9 @@
   width: fit-content;
 }
 .bulkdeleteCancel{
-  background-color: #619f58;
+  background-color: #c00c1e;
   color: #FFF;
-  border-color: #50b822;
+  border-color:#c00c1e;
   background-position: 7px 7px;
   border-radius: 8px;
   cursor: pointer;
@@ -438,4 +438,12 @@ like a tickmark */
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.inputWidth{
+  width: 420px;
+  height: 32px;
+  border-color: #b4d99b;
+  /* border: #151514; */
+  /* background-color: #e0e9dc; */
 }

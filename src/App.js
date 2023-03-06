@@ -4,6 +4,7 @@ import ListEmployeeComponent from './Components/ListEmployeeComponent';
 import FooterComponent from './Components/FooterComponent';
 import HeaderComponent from './Components/HeaderComponent';
 import CreateEmployee from './Components/CreateEmployee';
+import Bulkedit from './Components/Bulkedit';
 function App() {
   return (
     <div >
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" exact component={ListEmployeeComponent}></Route>
           <Route path="/addemployee" component={CreateEmployee}></Route>
           <Route path="/updateemployee/:id" component={CreateEmployee}></Route>
+          <Route path="/bulkeditemployee" component={Bulkedit}></Route>
         </Switch>
      <FooterComponent/>
     </Router>

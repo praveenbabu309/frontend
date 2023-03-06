@@ -14,10 +14,10 @@ class Bulkactionmenu extends Component {
       onChange={onbulkActionMenuClick
       } 
     >
-      <option  className="dropdown-menu">Bulk Action'</option>
-     <option  className="dropdown-menu" value="add">Orange</option>
-      <option   className="dropdown-menu" value="edit">Radish</option>
-      <option  className="dropdown-menu" value="delete">Cherry</option>
+      <option  hidden className="dropdown-menu">Bulk Action'</option>
+     <option  className="dropdown-menu" value="add">Bulk Add</option>
+      <option   className="dropdown-menu" value="edit">Bulk Edit</option>
+      <option  className="dropdown-menu" value="delete">Bulk Delete</option>
     </select>
     );
   }
