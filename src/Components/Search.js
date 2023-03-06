@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import add from "../add.png";
 
 class Search extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class Search extends Component {
     const { search, getFilterValue } = this.props;
     return (
       <input
-        type="text"
+        type="search"
         autoFocus
         className="search"
         name="search"

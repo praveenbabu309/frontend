@@ -86,6 +86,12 @@ class ListEmployeeComponent extends Component {
  
   onbulkActionMenuClick = (e) => {
     this.setState({ bulkaction: e.target.value });
+    if(e.target.value=='edit')
+    {
+      this.props.history.push("/bulkeditemployee");
+      document.location.reload();
+      
+    }
   };
   checkboxclick = (e) => {
     //const array=[];
@@ -131,7 +137,6 @@ class ListEmployeeComponent extends Component {
   };
 
   render() {
-    let dropDownArrow=this.state.bulk_drop_down_open==true? "triangle_up":"triangle_down"
     return (
       <div className="emp-content">
         <h2 className="textcenter"> Employee List</h2>
@@ -198,7 +203,8 @@ class ListEmployeeComponent extends Component {
 
             <tbody className="tr">
               {this.filterData().length == 0 ? (
-                <h1>No Result Found</h1>
+                <tr>
+                <h1>No Result Found</h1></tr>
               ) : (
                 this.filterData().map((employee) => (
                   <tr key={employee.id}>
