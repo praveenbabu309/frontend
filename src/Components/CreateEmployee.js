@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import Modal from "./Modal";
 
 class CreateEmployee extends Component {
     constructor(props)
@@ -9,7 +10,9 @@ class CreateEmployee extends Component {
            id:this.props.match.params.id,
            name:'',
            mode :'',
-           disabled:false
+           disabled:false,
+           show : false,
+           message :""
         }
     }
     componentDidMount(){
@@ -41,8 +44,15 @@ class CreateEmployee extends Component {
                 },
                 body:JSON.stringify(employee)
             }).then(res=>{
-                this.props.history.push('/');
+                console.log(res);
+                if(res.status==409){
+                this.setState({show:true , message : "Data is already presented"})}
+                else{
+                      this.props.history.push('/');
                 document.location.reload();
+                }
+               // this.props.history.push('/');
+                //document.location.reload();
             });
         }
         else{
@@ -69,13 +79,16 @@ class CreateEmployee extends Component {
         else{
         return 'Update Employee';}
       }
+      ok = () => {
+        this.setState({show:false });
+      }
     render() {
         return (
          
-            <div >
+            <div  >
                 <br/>
                 <div className='table'>
-                <h1>{this.getTitle()}</h1>
+                <h1 className='thead'>{this.getTitle()}</h1>
                  <div >
                     <h3>Employee ID</h3>
                     <input type="number" placeholder="Id" name="id" value={this.state.id} onChange={this.onchange} disabled={this.state.disabled}></input>
@@ -86,6 +99,13 @@ class CreateEmployee extends Component {
                  <button className='updatebutton' onClick={this.save}>Save</button>
                  <button className='deltebutton' onClick={this.cancel}>Cancel</button>
                 </div>
+                <Modal
+            show={this.state.show}
+           handleClose={this.ok}
+            //handleok= {this.ok}
+            msg={this.state.message}
+            cancellabel="OK"
+          />
             </div>
         );
     }

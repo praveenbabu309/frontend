@@ -19,15 +19,17 @@ class ListEmployeeComponent extends Component {
       bulkaction: "",
       bulk_delete_array: [],
       isdiable: true,
-     dropDownArrow:"triangle_up"
+     dropDownArrow:"triangle_up",
+     backgroupdblur:""
     };
   }
 
   showModal = (id) => {
-    this.setState({ show: true, currentid: id });
+    this.setState({ show: true, currentid: id , backgroupdblur: "blur"});
+
   };
   hideModal = () => {
-    this.setState({ show: false });
+    this.setState({ show: false ,backgroupdblur:""});
   };
 
   async componentDidMount() {
@@ -45,12 +47,14 @@ class ListEmployeeComponent extends Component {
       method: "POST",
     })
       .then((res) => res.json())
-      .then((res) =>
+      .then((res) =>{
         this.setState({
           employees: this.state.employees.filter(
             (employee) => employee.id !== id
           ),
         })
+        console.log(res);
+      }
       )
       .then(this.hideModal());
   };
@@ -92,6 +96,10 @@ class ListEmployeeComponent extends Component {
       document.location.reload();
       
     }
+    if(e.target.value=='add'){
+      this.props.history.push("/bulkadd");
+      document.location.reload();
+    }
   };
   checkboxclick = (e) => {
     //const array=[];
@@ -132,12 +140,16 @@ class ListEmployeeComponent extends Component {
         "Content-Type": "application/json",
       },
     }).then((res) => {
+     // console.log(res);
       document.location.reload();
+    
     });
   };
 
   render() {
     return (
+      <div>
+      <div className={this.state.backgroupdblur}>
       <div className="emp-content">
         <h2 className="textcenter"> Employee List</h2>
         <tr>
@@ -238,14 +250,20 @@ class ListEmployeeComponent extends Component {
               )}
             </tbody>
           </table>
-          <Modal
+          
+        
+        </div>
+        <br />
+      </div>
+      </div>
+      <Modal
             show={this.state.show}
             handleClose={this.hideModal}
             handleok={() => this.ok(this.state.currentid)}
-            msg={this.state.currentid}
+            msg={<p>Do you want to delete this id {this.state.currentid} ?</p>}
+            cancellabel="Cancel"
+            oklabel="Ok"
           />
-        </div>
-        <br />
       </div>
     );
   }
