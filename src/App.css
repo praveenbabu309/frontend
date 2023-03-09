@@ -201,7 +201,9 @@
   height: 100%;
   background: none;
 }
-
+.blur{
+  filter: blur(2px) opacity(40%);
+}
 .modal-main {
   position: fixed;
   background: whitesmoke;
@@ -211,6 +213,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 8px;
+
 }
 
 .display-block {
@@ -446,4 +449,19 @@ like a tickmark */
   border-color: #b4d99b;
   /* border: #151514; */
   /* background-color: #e0e9dc; */
+}
+
+.dialogheader{
+  background-color: #91f322;
+  margin-top: -50px;
+  height: 41px;
+}
+.removerow{
+  margin-left: 11px;
+  cursor: pointer;
+  
+}
+.removerow:hover{
+  background-color: hsla(108, 3%, 66%, 0.503);
+  height: 5px;
 }
