@@ -263,6 +263,7 @@ class ListEmployeeComponent extends Component {
             msg={<p>Do you want to delete this id {this.state.currentid} ?</p>}
             cancellabel="Cancel"
             oklabel="Ok"
+            dialogueHeader=" Conformation"
           />
       </div>
     );

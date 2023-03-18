@@ -4,6 +4,8 @@ import add from "../bulkadd.png";
 class Bulkadd extends Component {
     constructor(props) {
         super(props);
+        this.idRefs = {};
+        this.nameRefs = {};
         this.state = {
           employees: [{}],
         };
@@ -23,6 +25,23 @@ class Bulkadd extends Component {
         document.location.reload();
       }
      
+      onsave=()=>{ 
+       // this.state.employees.map((emp, index)=>{
+        for(let i=0;i<this.state.employees.length;i++)  {
+       const Idinput = this.idRefs[i];
+       const Nameinput = this.nameRefs[i];
+      if (!Idinput.value) {
+        Idinput.focus();
+        return;
+      } 
+      if (!Nameinput.value) {
+        Nameinput.focus();
+        return;
+      }  
+         } 
+         
+      }
+
       rowRemove = (idx) => {
         const rows = [...this.state.employees]
         rows.splice(idx, 1)
@@ -40,7 +59,7 @@ class Bulkadd extends Component {
                  {item.name=value;}
                   return item;
        })
-       this.setState({employees:updated_array})
+       this.setState({employees:updated_array,inputFocused:false})
        console.log(updated_array);
 
         }
@@ -50,8 +69,9 @@ class Bulkadd extends Component {
     render() {
         return (
             <div className="emp-content">
+              <button onClick={(e)=>this.onsave(e)}>Save</button>
                 <button onClick={(e)=>this.oncancel(e)}>cancel</button>
-                <input type="image" src={add}  onClick={this.handleAddRow} />
+                <input className='bulkAddIcon' type="image" src={add}  onClick={this.handleAddRow} />
                 <table className="table">
                     <thead className="thead">
                         <tr>
@@ -67,17 +87,24 @@ class Bulkadd extends Component {
                         {this.state.employees.map((item,index)=>(
                         <tr>
                             <td>
-                                <input type="text" className='inputWidth' name ="id"  value={this.state.employees[index].id}
-                          onChange={(e)=>this.handleChange(e,index)}/>
+                                <input type="number" className='inputWidth' name ="id" value={this.state.employees[index].id}
+                          onChange={(e)=>this.handleChange(e,index)} ref={(input) => {
+                            this.idRefs[index] = input;
+                          }} />
                             </td>
                             <td>
                                 <span>
                                 <input type="text" className='inputWidth' name="name"  value={this.state.employees[index].name}
-                          onChange={(e)=>this.handleChange(e,index)}/>
+                          onChange={(e)=>this.handleChange(e,index)} ref={(input) => {
+                            this.nameRefs[index] = input;
+                          }}/>
                                 <h7 className="removerow" onClick={(e)=>this.rowRemove(index)}>    x     </h7></span>
                             </td>
                         </tr>
+                        
                         ))}
+
+
                     </tbody>
                 </table>
             </div>

@@ -450,6 +450,11 @@ like a tickmark */
   /* border: #151514; */
   /* background-color: #e0e9dc; */
 }
+/* input.error {
+  border: 1px solid red;
+  width: 420px;
+  height: 32px;
+} */
 
 .dialogheader{
   background-color: #91f322;
@@ -464,4 +469,9 @@ like a tickmark */
 .removerow:hover{
   background-color: hsla(108, 3%, 66%, 0.503);
   height: 5px;
+}
+
+.bulkAddIcon{
+  margin-left: 1135px;
+  margin-top: 42px;
 }
