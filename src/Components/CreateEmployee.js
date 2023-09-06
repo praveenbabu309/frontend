@@ -48,7 +48,7 @@ class CreateEmployee extends Component {
               message: ` ${res.id} is already presented`,
             });
           } else {
-            this.props.history.push("/");
+            this.props.history.push("/employees");
             document.location.reload();
           }
         });
@@ -61,13 +61,13 @@ class CreateEmployee extends Component {
         },
         body: JSON.stringify(employee),
       }).then((res) => {
-        this.props.history.push("/");
-        document.location.reload();
+        this.props.history.push("/employees");
+       // document.location.reload();
       });
     }
   };
   cancel = () => {
-    this.props.history.push("/");
+    this.props.history.push("/employees");
     document.location.reload();
   };
   getTitle() {

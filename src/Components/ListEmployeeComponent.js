@@ -6,6 +6,8 @@ import Search from "./Search";
 import add from "../add.png";
 import Bulkactionmenu from "./bulkactionmenu.js";
 import Checkbox from "./Checkbox";
+import fileDownload from 'js-file-download'
+import Spinner from "./spinner";
 
 class ListEmployeeComponent extends Component {
   constructor(props) {
@@ -20,7 +22,9 @@ class ListEmployeeComponent extends Component {
       bulk_delete_array: [],
       isdiable: true,
      dropDownArrow:"triangle_up",
-     backgroupdblur:""
+     backgroupdblur:"",
+     no_data:"",
+     isLoding:false
     };
   }
 
@@ -33,10 +37,15 @@ class ListEmployeeComponent extends Component {
   };
 
   async componentDidMount() {
-    fetch("http://localhost:8080/api/employees")
+        fetch("http://localhost:8080/api/employees",{
+          headers:{
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+    }
+        })
       .then((res) => res.json())
       .then((res) => this.setState({ employees: res }));
   }
+  
   edit = (id) => {
     this.props.history.push(`/updateemployee/${id}`);
     document.location.reload();
@@ -64,10 +73,7 @@ class ListEmployeeComponent extends Component {
   };
   getFilterValue = (e) => {
     const search = e.target.value;
-    //const matches = search.match(/\d+/g)
-    if (search == "") {
-      this.setState({ no_data: false });
-    }
+   // const matches = search.match(/\d+/g)
     this.setState({ search: e.target.value });
   };
 
@@ -82,7 +88,9 @@ class ListEmployeeComponent extends Component {
           .includes(this.state.search.toString().toLowerCase()) ||
         employee.name.toLowerCase().includes(this.state.search.toLowerCase())
       ) {
+     
         return employee;
+      
       }
     });
   }
@@ -138,6 +146,7 @@ class ListEmployeeComponent extends Component {
       body: JSON.stringify(this.state.bulk_delete_array),
       headers: {
         "Content-Type": "application/json",
+       
       },
     }).then((res) => {
      // console.log(res);
@@ -145,10 +154,28 @@ class ListEmployeeComponent extends Component {
     
     });
   };
+  
+   downloadCsv = () => {
+    fetch("http://localhost:8080/api/csvdownload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(true),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+       console.log(res);
+       fileDownload(res.message, "EmployeeManagment.csv")
+
+      });
+   
+  };
 
   render() {
     return (
       <div>
+           
       <div className={this.state.backgroupdblur}>
       <div className="emp-content">
         <h2 className="textcenter"> Employee List</h2>
@@ -215,8 +242,9 @@ class ListEmployeeComponent extends Component {
 
             <tbody className="tr">
               {this.filterData().length == 0 ? (
-                <tr>
-                <h1>No Result Found</h1></tr>
+            <tr>
+            <td colspan="3"><h1>No Result Found</h1></td>
+         </tr>
               ) : (
                 this.filterData().map((employee) => (
                   <tr key={employee.id}>
@@ -250,10 +278,12 @@ class ListEmployeeComponent extends Component {
               )}
             </tbody>
           </table>
-          
-        
+          <div>
+          <div>
+    </div>
+    </div>
         </div>
-        <br />
+        <button className="csvdownload" onClick={this.downloadCsv}>Download CSV</button>
       </div>
       </div>
       <Modal
@@ -265,6 +295,7 @@ class ListEmployeeComponent extends Component {
             oklabel="Ok"
             dialogueHeader=" Conformation"
           />
+        
       </div>
     );
   }
