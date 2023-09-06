@@ -128,7 +128,7 @@
   height: 40px;
   margin-left: 231px;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .search-bulk {
@@ -472,6 +472,120 @@ like a tickmark */
 }
 
 .bulkAddIcon{
-  margin-left: 1135px;
-  margin-top: 42px;
+  margin-left: 1203px;
+  margin-top: -32px;
+}
+
+.bulkaddSave{
+  color: #FFF;
+  border-color: #619f58;
+  background-position: 7px 7px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  height: 36px;
+  line-height: 36px;
+  margin-top: 1px;
+  padding-right: 10px;
+  text-indent: 5px;
+  margin-left: 270px;
+}
+
+.bulkaddCancel{
+  background-color: #c00c1e;
+  color: #FFF;
+  border-color:#c00c1e;
+  background-position: 7px 7px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  height: 36px;
+  line-height: 36px;
+  margin-top: 1px;
+  padding-right: 10px;
+  text-indent: 5px;
+  margin-left: 10px;
+  width: fit-content;
+}
+
+/* spinner */
+.spinner {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.spinner-inner {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #e41313;
+  border-radius: 50%;
+  animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #f83808 transparent transparent transparent;
+}
+
+.spinner-inner:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.spinner-inner:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.spinner-inner:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.csvdownload{
+  background-color: #525252;
+    color: #FFF;
+    border-color: #525252;
+    background-position: 7px 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    height: 36px;
+    text-indent: 5px;
+    margin-left:270px;
+    margin-top: 10px;
+}
+
+.fontsize{
+font-size: 13px;
+text-emphasis-color: black;
+}
+
+/* hide No chosen text for file component*/ 
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Select a file';
+}
+.custom-file-input:hover::before {
+  border-color: #3498db;
+}
+.custom-file-input:active::before {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+.custom-file-input:focus::before {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
 }

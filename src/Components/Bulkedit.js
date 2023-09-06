@@ -19,9 +19,9 @@ class Bulkedit extends Component {
       getFilterValue = (e) => {
         const search = e.target.value;
         //const matches = search.match(/\d+/g)
-        if (search == "") {
-          this.setState({ no_data: false });
-        }
+        // if (search == "") {
+        //   this.setState({ no_data: false });
+        // }
         this.setState({ search: e.target.value });
       };
       
@@ -41,7 +41,7 @@ class Bulkedit extends Component {
     });
   }
   cancel=(e)=>{
-    this.props.history.push('/');
+    this.props.history.push('/employees');
     document.location.reload();
   }
   Bulkedit=(e,employeeid) =>{
@@ -66,7 +66,7 @@ class Bulkedit extends Component {
         "Content-Type": "application/json",
       },
     }).then((res) => {
-      this.props.history.push("/");
+      this.props.history.push("/employees");
       document.location.reload();
     });
   }
@@ -99,8 +99,9 @@ class Bulkedit extends Component {
 
             <tbody className="tr">
               {this.filterData().length == 0 ? (
-                <tr>
-                <h1>No Result Found</h1></tr>
+                 <tr>
+                 <td colspan="3"><h1>No Result Found</h1></td>
+              </tr>
               ) : (
                 this.filterData().map((employee) => (
                   <tr key={employee.id}>
